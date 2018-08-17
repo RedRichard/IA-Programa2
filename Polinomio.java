@@ -7,7 +7,7 @@ public class Polinomio{
 
     public Polinomio(String [] coeficientes){
         this.coeficientes = coeficientes;
-        this.grado = coeficientes.length-1;
+        this.grado = coeficientes.length - 1;
     }
 
     public String [] getCoeficientes(){
@@ -57,7 +57,7 @@ public class Polinomio{
         return resultado;
     }
     
-        public static String resta(Polinomio poli1, Polinomio poli2){
+    public static String resta(Polinomio poli1, Polinomio poli2){
         //Obtenemos los coeficientes de polinomio
         String [] coeficientes1=poli1.getCoeficientes(),coeficientes2=poli2.getCoeficientes();
         String [] suma=new String[poli1.grado+1];
@@ -84,6 +84,24 @@ public class Polinomio{
         }
         resultado=resultado+suma[suma.length-1]+" x^"+grado;
         System.out.println(resultado);
+        return resultado;
+    }
+
+    public static String integral(Polinomio poli) {
+        String [] coeficientes = poli.getCoeficientes();
+        int grado = poli.getGrado();
+        String resultado = "";
+
+        for(int i = 0; i <= coeficientes.length - 1; i++) {
+            if (i == 0 || Float.parseFloat(coeficientes[i]) < 0) {
+                resultado += Float.toString(Float.parseFloat(coeficientes[i]) / (grado + 1)) + "x^" + String.valueOf(grado + 1);   
+            } else {
+                resultado += " + " + Float.toString(Float.parseFloat(coeficientes[i]) / (grado + 1)) + "x^" + String.valueOf(grado + 1);
+            }
+            grado--;
+        }
+
+        resultado += "+ C";
         return resultado;
     }
 }
