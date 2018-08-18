@@ -1,4 +1,4 @@
-import java.lang.Math; 
+import java.lang.Math;
 import java.util.Arrays;
 
 public class Polinomio{
@@ -56,7 +56,7 @@ public class Polinomio{
         System.out.println(resultado);
         return resultado;
     }
-    
+
     public static String resta(Polinomio poli1, Polinomio poli2){
         //Obtenemos los coeficientes de polinomio
         String [] coeficientes1=poli1.getCoeficientes(),coeficientes2=poli2.getCoeficientes();
@@ -94,7 +94,7 @@ public class Polinomio{
 
         for(int i = 0; i <= coeficientes.length - 1; i++) {
             if (i == 0 || Float.parseFloat(coeficientes[i]) < 0) {
-                resultado += Float.toString(Float.parseFloat(coeficientes[i]) / (grado + 1)) + "x^" + String.valueOf(grado + 1);   
+                resultado += Float.toString(Float.parseFloat(coeficientes[i]) / (grado + 1)) + "x^" + String.valueOf(grado + 1);
             } else {
                 resultado += " + " + Float.toString(Float.parseFloat(coeficientes[i]) / (grado + 1)) + "x^" + String.valueOf(grado + 1);
             }
@@ -102,6 +102,24 @@ public class Polinomio{
         }
 
         resultado += "+ C";
+        return resultado;
+    }
+
+    public static String derivada(Polinomio poli){
+        String resultado = "";
+        if (poli.getGrado() != 0) {
+            for (int i = 0; i < poli.getGrado(); i++) {
+                resultado += Float.toString((poli.getGrado() - i) * Float.parseFloat(poli.getCoeficientes()[i]));
+                resultado += "x^" + Integer.toString(poli.getGrado() - i - 1);
+                if ((poli.getGrado() - i) != 1) {
+                    resultado += " + ";
+                }
+                System.out.println(resultado);
+            }
+        }else {
+            resultado="0";
+            System.out.println(resultado);
+        }
         return resultado;
     }
 }

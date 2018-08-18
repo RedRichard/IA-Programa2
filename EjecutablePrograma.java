@@ -1,8 +1,13 @@
 import javax.swing.JOptionPane;
+import java.lang.NullPointerException;
 
 public class EjecutablePrograma {
 
     public static void main(String[] args) {
-        Menu menu = new Menu();
-    }    
+        try{
+            Menu menu = new Menu();
+        }catch(NullPointerException e){
+        }
+
+    }
 }
