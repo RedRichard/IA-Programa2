@@ -87,6 +87,24 @@ public class Polinomio{
         return resultado;
     }
 
+    public static String Multiplicacion(Polinomio poli1, Polinomio poli2){
+        int g1 = poli1.getGrado();
+        int g2 = poli2.getGrado();
+        int gResultado = poli1.getGrado() + poli2.getGrado();
+        int [] poliResultado = new int[gResultado+1];
+        gResultado = 0;
+        int auxRes = 0;
+        for (String coeficiente1: poli1.getCoeficientes()){
+            for(String coeficiente2: poli2.getCoeficientes()){
+                poliResultado[auxRes] += Integer.parseInt(coeficiente1) * Integer.parseInt(coeficiente2);
+                auxRes++;
+            }
+            gResultado++;
+            auxRes = gResultado;
+        }
+        return Arrays.toString(poliResultado);
+    }
+
     public static String integral(Polinomio poli) {
         String [] coeficientes = poli.getCoeficientes();
         int grado = poli.getGrado();

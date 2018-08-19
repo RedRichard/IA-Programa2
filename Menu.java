@@ -21,6 +21,9 @@ public class Menu{
             case "3":
                 Submenu2Polinomios();
                 MostrarMensaje("El valor de la resta es: " + Polinomio.resta(poli, poli2));
+            case "4":
+                Submenu2Polinomios();
+                MostrarMensaje("El valor de la multiplicacion es: " + Polinomio.Multiplicacion(poli, poli2));
             case "6":
                 SubmenuPolinomio();
                 MostrarMensaje("El valor de la integral es: " + Polinomio.integral(poli));
