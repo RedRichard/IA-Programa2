@@ -37,17 +37,20 @@ public class Menu{
                 break;
             default:
                 // En caso de que la opcion no sea válida se ejecuta el menu otravez
-                //Menu menu = new Menu();
+                Menu menu = new Menu();
         }
     }    
 
     public void SubmenuPolinomio(){
         poli = new Polinomio(JOptionPane.showInputDialog(null,"Escriba los coeficientes del polinomio separados por comas\nEjem.  10,2,7,40,56" ).split(","));
+        this.ValidezPolinomio(poli.getCoeficientes());
     }
     
     public void Submenu2Polinomios(){
         poli = new Polinomio(JOptionPane.showInputDialog(null,"Escriba los coeficientes del polinomio separados por comas\nEjem.  10,2,7,40,56" ).split(","));
+        this.ValidezPolinomio(poli.getCoeficientes());
         poli2 = new Polinomio(JOptionPane.showInputDialog(null,"Escriba los coeficientes del polinomio separados por comas\nEjem.  10,2,7,40,56" ).split(","));
+        this.ValidezPolinomio(poli2.getCoeficientes());
     }
 
     public void SubmenuEscalar(String mensaje){
@@ -61,5 +64,18 @@ public class Menu{
 
     public String MostrarMensajeInput(String mensaje){
         return JOptionPane.showInputDialog(null, mensaje);
+    }
+    
+    public void ValidezPolinomio(String[] polinomio)
+    {
+        for(String a: polinomio){
+            
+            try {
+                Float.parseFloat(a);
+            } catch (NumberFormatException nfe){
+		JOptionPane.showMessageDialog(null, "Datos incorrectos");
+                Menu menu = new Menu();
+            }
+        }
     }
 }

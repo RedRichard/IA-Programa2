@@ -90,19 +90,38 @@ public class Polinomio{
     public static String Multiplicacion(Polinomio poli1, Polinomio poli2){
         int g1 = poli1.getGrado();
         int g2 = poli2.getGrado();
+        String resultado="";
         int gResultado = poli1.getGrado() + poli2.getGrado();
-        int [] poliResultado = new int[gResultado+1];
+        float [] poliResultado = new float[gResultado+1];
         gResultado = 0;
         int auxRes = 0;
         for (String coeficiente1: poli1.getCoeficientes()){
             for(String coeficiente2: poli2.getCoeficientes()){
-                poliResultado[auxRes] += Integer.parseInt(coeficiente1) * Integer.parseInt(coeficiente2);
+                poliResultado[auxRes] += Float.parseFloat(coeficiente1) * Float.parseFloat(coeficiente2);
                 auxRes++;
             }
             gResultado++;
             auxRes = gResultado;
         }
-        return Arrays.toString(poliResultado);
+        //Para desplegar en forma de x
+        int grado=poliResultado.length-1;
+        for(int i=0;i<poliResultado.length-1;i++)
+        {
+            if(poliResultado[i+1]>0)
+            {
+                resultado=resultado+poliResultado[i]+"x^"+grado+" +";
+                grado=grado-1;
+            }
+            else
+            {
+                resultado=resultado+poliResultado[i]+"x^"+grado+" ";
+                grado=grado-1;
+            }
+        }
+        resultado=resultado+poliResultado[poliResultado.length-1]+" x^"+grado;
+        System.out.println(resultado);
+        return resultado;
+        //return Arrays.toString(poliResultado);
     }
 
     public static String derivada(Polinomio poli){
