@@ -105,6 +105,24 @@ public class Polinomio{
         return Arrays.toString(poliResultado);
     }
 
+    public static String derivada(Polinomio poli){
+        String resultado = "";
+        if (poli.getGrado() != 0) {
+            for (int i = 0; i < poli.getGrado(); i++) {
+                resultado += Float.toString((poli.getGrado() - i) * Float.parseFloat(poli.getCoeficientes()[i]));
+                resultado += "x^" + Integer.toString(poli.getGrado() - i - 1);
+                if ((poli.getGrado() - i) != 1) {
+                    resultado += " + ";
+                }
+                System.out.println(resultado);
+            }
+        }else {
+            resultado="0";
+            System.out.println(resultado);
+        }
+        return resultado;
+    }
+
     public static String integral(Polinomio poli) {
         String [] coeficientes = poli.getCoeficientes();
         int grado = poli.getGrado();
