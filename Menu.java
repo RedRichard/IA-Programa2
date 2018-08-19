@@ -7,8 +7,8 @@ public class Menu{
     private float escalar;
     public Menu()
     {
-        String opcion = MostrarMensajeInput("Escoja una de las siguientes opciones\n1.- Valor en un punto\n2.- Suma\n3.- Resta\n4.- Multiplicacion\n5.-Derivada\n6.-Integral");
-        
+        String opcion = MostrarMensajeInput("Escoja una de las siguientes opciones\n1.- Valor en un punto\n2.- Suma\n3.- Resta\n4.- Multiplicacion\n5.-Derivada\n6.-Integral\n7.-Salir");
+
         switch (opcion){
             case "1":
                 SubmenuPolinomio();
@@ -18,18 +18,26 @@ public class Menu{
             case "2":
                 Submenu2Polinomios();
                 MostrarMensaje("El valor de la suma es: " + Polinomio.suma(poli, poli2));
+                break;
             case "3":
                 Submenu2Polinomios();
                 MostrarMensaje("El valor de la resta es: " + Polinomio.resta(poli, poli2));
+                break;
             case "4":
                 Submenu2Polinomios();
                 MostrarMensaje("El valor de la multiplicacion es: " + Polinomio.Multiplicacion(poli, poli2));
+                break;
+            case "5":
+                SubmenuPolinomio();
+                MostrarMensaje("El valor de la derivada es: " + Polinomio.derivada(poli));
+                break;
             case "6":
                 SubmenuPolinomio();
                 MostrarMensaje("El valor de la integral es: " + Polinomio.integral(poli));
+                break;
             default:
-                //En caso de que la opcion no sea válida se ejecuta el menu otravez
-                Menu menu = new Menu();
+                // En caso de que la opcion no sea válida se ejecuta el menu otravez
+                //Menu menu = new Menu();
         }
     }    
 
