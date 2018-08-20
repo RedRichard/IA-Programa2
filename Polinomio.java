@@ -38,11 +38,27 @@ public class Polinomio {
 	public static String suma(Polinomio poli1, Polinomio poli2) {
 		//Obtenemos los coeficientes de polinomio
 		String [] coeficientes1 = poli1.getCoeficientes(), coeficientes2 = poli2.getCoeficientes();
-		String [] suma = new String[poli1.grado + 1];
+		String [] suma, auxSuma;
+
 		//Se recorre el arreglo y se suman
-		for(int i = 0; i <= poli1.getGrado(); i++) {
-			suma[i] = Float.toString(Float.parseFloat(coeficientes2[i]) + Float.parseFloat(coeficientes1[i]));
+		int minGrado, maxGrado;
+		if (poli1.getGrado() > poli2.getGrado()){
+			minGrado = poli2.getGrado();
+			maxGrado = poli1.getGrado();
+			suma = coeficientes1;
+			auxSuma = coeficientes2;
+		} else{
+			minGrado = poli1.getGrado();
+			maxGrado = poli2.getGrado();
+			suma = coeficientes2;
+			auxSuma = coeficientes1;
+		}		
+
+		int auxGrado = maxGrado-minGrado;
+		for(int i = 0; i <= minGrado; i++) {
+			suma[i+auxGrado] = Float.toString(Float.parseFloat(auxSuma[i]) + Float.parseFloat(suma[i+auxGrado]));
 		}
+
 		//Realiza una cadena con el resultado
 		int grado = poli1.grado;
 		String resultado = "";
@@ -64,11 +80,33 @@ public class Polinomio {
 	public static String resta(Polinomio poli1, Polinomio poli2) {
 		//Obtenemos los coeficientes de polinomio
 		String [] coeficientes1 = poli1.getCoeficientes(), coeficientes2 = poli2.getCoeficientes();
-		String [] suma = new String[poli1.grado + 1];
-		//Se recorre el arreglo y se restan
-		for(int i = 0; i <= poli1.getGrado(); i++) {
-			suma[i] = Float.toString(Float.parseFloat(coeficientes1[i]) - Float.parseFloat(coeficientes2[i]));
+		String [] suma, auxSuma;
+
+		for (int i = 0; i<=poli2.getGrado(); i++){
+			coeficientes2[i] = Float.toString((-1.0f)*Float.parseFloat(coeficientes2[i]));
 		}
+
+		//Se recorre el arreglo y se suman
+		int minGrado, maxGrado;
+		if (poli1.getGrado() > poli2.getGrado()){
+			minGrado = poli2.getGrado();
+			maxGrado = poli1.getGrado();
+			suma = coeficientes1;
+			auxSuma = coeficientes2;
+		} else{
+			minGrado = poli1.getGrado();
+			maxGrado = poli2.getGrado();
+			suma = coeficientes2;
+			auxSuma = coeficientes1;
+		}	
+		
+		
+
+		int auxGrado = maxGrado-minGrado;
+		for(int i = 0; i <= minGrado; i++) {
+			suma[i+auxGrado] = Float.toString(Float.parseFloat(auxSuma[i]) + Float.parseFloat(suma[i+auxGrado]));
+		}
+
 		//Realiza una cadena con el resultado
 		int grado = poli1.grado;
 		String resultado = "";

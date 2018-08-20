@@ -30,13 +30,13 @@ public class Menu {
 				break;
 			case "3":
 				Submenu2Polinomios();
-				try {
+				// try {
 					MostrarMensaje("El valor de la suma es: " + Polinomio.resta(poli, poli2));
-				} catch (ArrayIndexOutOfBoundsException e) {
-					// Cuando los polinomios no son del mismo tamaño se produce un error
-					MostrarMensaje("Los polinomios deben ser del mismo grado");
-				}
-				break;
+				// } catch (ArrayIndexOutOfBoundsException e) {
+				// 	// Cuando los polinomios no son del mismo tamaño se produce un error
+				// 	MostrarMensaje("Los polinomios deben ser del mismo grado");
+				// }
+				// break;
 			case "4":
 				Submenu2Polinomios();
 				MostrarMensaje("El valor de la multiplicacion es: " + Polinomio.Multiplicacion(poli, poli2));
