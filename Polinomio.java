@@ -106,7 +106,7 @@ public class Polinomio {
 		// Para desplegar en forma de x
 		int grado = poliResultado.length - 1;
 		for(int i = 0; i < poliResultado.length - 1; i++) {
-			if(poliResultado[i + 1] > 0) {
+			if(poliResultado[i + 1] >= 0) {
 				resultado = resultado + poliResultado[i] + "x^" + grado + " +";
 				grado = grado - 1;
 			} else {
