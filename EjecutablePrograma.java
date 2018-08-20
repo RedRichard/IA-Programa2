@@ -1,7 +1,7 @@
 /*
 	Integrantes:
-		-
-		-
+		- Aco Guerrero Iván Rogelio
+		- Ricardo Hernández Gómez
 		- Hernández Arrieta Carlos Alberto
 		- Hernández García Luis Angel
 
