@@ -47,7 +47,7 @@ public class Polinomio {
 		int grado = poli1.grado;
 		String resultado = "";
 		for(int i = 0; i < suma.length - 1; i++) {
-			if(Float.parseFloat(suma[i + 1]) > 0) {
+			if(Float.parseFloat(suma[i + 1]) >= 0) {
 				resultado = resultado + suma[i] + "x^" + grado + " +";
 				grado = grado - 1;
 			} else {
@@ -73,7 +73,7 @@ public class Polinomio {
 		int grado = poli1.grado;
 		String resultado = "";
 		for(int i = 0; i < suma.length - 1; i++) {
-			if(Float.parseFloat(suma[i + 1]) > 0) {
+			if(Float.parseFloat(suma[i + 1]) >= 0) {
 				resultado = resultado + suma[i] + "x^" + grado + " +";
 				grado = grado - 1;
 			} else {
